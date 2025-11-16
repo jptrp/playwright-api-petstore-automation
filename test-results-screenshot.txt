@@ -1,0 +1,706 @@
+
+> playwright-api-petstore-automation@1.0.0 test
+> playwright test
+
+
+Running 56 tests using 4 workers
+
+  ✓   1 [api-tests] › src/tests/pets/createPet.spec.ts:35:7 › Create Pet API Tests › should create a pet with only required fields (368ms)
+  ✓   4 [api-tests] › src/tests/pets/createPet.spec.ts:67:7 › Create Pet API Tests › should create a pet with pending status (375ms)
+  ✓   3 [api-tests] › src/tests/pets/createPet.spec.ts:51:7 › Create Pet API Tests › should create a pet with available status (373ms)
+  ✓   2 [api-tests] › src/tests/pets/createPet.spec.ts:18:7 › Create Pet API Tests › should create a pet with all fields (400ms)
+  ✓   5 [api-tests] › src/tests/pets/createPet.spec.ts:83:7 › Create Pet API Tests › should create a pet with sold status (130ms)
+  ✓   7 [api-tests] › src/tests/pets/createPet.spec.ts:117:7 › Create Pet API Tests › should create a pet with tags (131ms)
+  ✓   6 [api-tests] › src/tests/pets/createPet.spec.ts:99:7 › Create Pet API Tests › should create a pet with category (136ms)
+  ✓   8 [api-tests] › src/tests/pets/createPet.spec.ts:137:7 › Create Pet API Tests › should create a pet with multiple photo URLs (131ms)
+  ✘  10 [api-tests] › src/tests/pets/deletePet.spec.ts:37:7 › Delete Pet API Tests › should return 404 when deleting non-existent pet (66ms)
+  ✘   9 [api-tests] › src/tests/pets/deletePet.spec.ts:18:7 › Delete Pet API Tests › should delete an existing pet (130ms)
+  ✘  11 [api-tests] › src/tests/pets/deletePet.spec.ts:46:7 › Delete Pet API Tests › should delete pet with available status (140ms)
+  ✘  12 [api-tests] › src/tests/pets/deletePet.spec.ts:63:7 › Delete Pet API Tests › should delete pet with pending status (133ms)
+  ✘  13 [api-tests] › src/tests/pets/deletePet.spec.ts:80:7 › Delete Pet API Tests › should delete pet with sold status (376ms)
+  ✘  14 [api-tests] › src/tests/pets/deletePet.spec.ts:97:7 › Delete Pet API Tests › should delete pet and prevent retrieval (369ms)
+  ✘  15 [api-tests] › src/tests/pets/deletePet.spec.ts:120:7 › Delete Pet API Tests › should handle deletion of recently created pet (390ms)
+  ✘  16 [api-tests] › src/tests/pets/deletePet.spec.ts:133:7 › Delete Pet API Tests › should delete pet with complex data (395ms)
+  ✘  18 [api-tests] › src/tests/pets/findByStatus.spec.ts:64:7 › Find Pets by Status API Tests › should find pets with sold status (95ms)
+  ✓  19 [api-tests] › src/tests/pets/findByStatus.spec.ts:95:7 › Find Pets by Status API Tests › should include created pet in status search (360ms)
+  ✘  17 [api-tests] › src/tests/pets/findByStatus.spec.ts:33:7 › Find Pets by Status API Tests › should find pets with available status (435ms)
+  ✓  21 [api-tests] › src/tests/pets/findByStatus.spec.ts:117:7 › Find Pets by Status API Tests › should return pets with valid structure (72ms)
+  ✘  20 [api-tests] › src/tests/pets/findByStatus.spec.ts:131:7 › Find Pets by Status API Tests › should filter pets correctly after status update (505ms)
+  ✘  22 [api-tests] › src/tests/pets/getPet.spec.ts:36:7 › Get Pet API Tests › should get an existing pet by ID (67ms)
+  ✘  25 [api-tests] › src/tests/pets/getPet.spec.ts:59:7 › Get Pet API Tests › should get pet with all fields populated (65ms)
+  ✓  26 [api-tests] › src/tests/pets/getPet.spec.ts:47:7 › Get Pet API Tests › should return 404 for non-existent pet (69ms)
+  ✘  24 [api-tests] › src/tests/pets/findByStatus.spec.ts:49:7 › Find Pets by Status API Tests › should find pets with pending status (73ms)
+  ✓  23 [api-tests] › src/tests/pets/findByStatus.spec.ts:79:7 › Find Pets by Status API Tests › should return different results for different statuses (606ms)
+  ✓  27 [api-tests] › src/tests/pets/getPet.spec.ts:95:7 › Get Pet API Tests › should handle boundary ID value (1) (60ms)
+  ✓  28 [api-tests] › src/tests/pets/negativeCases.spec.ts:18:7 › Negative Test Cases for Pet API › should return 404 for non-existent pet ID (62ms)
+  ✓  30 [api-tests] › src/tests/pets/negativeCases.spec.ts:27:7 › Negative Test Cases for Pet API › should return 400 for invalid pet ID (zero) (73ms)
+  ✓  29 [api-tests] › src/tests/pets/getPet.spec.ts:102:7 › Get Pet API Tests › should handle large ID value (62ms)
+  ✓  31 [api-tests] › src/tests/pets/negativeCases.spec.ts:34:7 › Negative Test Cases for Pet API › should return 400 for negative pet ID (67ms)
+  ✓  33 [api-tests] › src/tests/pets/negativeCases.spec.ts:41:7 › Negative Test Cases for Pet API › should handle missing required field (name) in create (65ms)
+  ✓  34 [api-tests] › src/tests/pets/negativeCases.spec.ts:53:7 › Negative Test Cases for Pet API › should handle missing required field (photoUrls) in create (65ms)
+  ✓  35 [api-tests] › src/tests/pets/negativeCases.spec.ts:68:7 › Negative Test Cases for Pet API › should handle empty pet object in create (61ms)
+  ✓  36 [api-tests] › src/tests/pets/negativeCases.spec.ts:79:7 › Negative Test Cases for Pet API › should handle null values in pet data (64ms)
+  ✓  38 [api-tests] › src/tests/pets/negativeCases.spec.ts:93:7 › Negative Test Cases for Pet API › should handle invalid status value (62ms)
+  ✓  39 [api-tests] › src/tests/pets/negativeCases.spec.ts:108:7 › Negative Test Cases for Pet API › should handle update with non-existent pet ID (59ms)
+  ✘  40 [api-tests] › src/tests/pets/negativeCases.spec.ts:120:7 › Negative Test Cases for Pet API › should handle delete of already deleted pet (127ms)
+  ✓  41 [api-tests] › src/tests/pets/negativeCases.spec.ts:141:7 › Negative Test Cases for Pet API › should handle extremely long pet name (130ms)
+  ✓  42 [api-tests] › src/tests/pets/negativeCases.spec.ts:183:7 › Negative Test Cases for Pet API › should handle empty string for pet name (63ms)
+  ✘  32 [api-tests] › src/tests/pets/getPet.spec.ts:71:7 › Get Pet API Tests › should retrieve correct pet data after creation (128ms)
+  ✓  43 [api-tests] › src/tests/pets/negativeCases.spec.ts:200:7 › Negative Test Cases for Pet API › should handle empty photoUrls array (63ms)
+  ✘  37 [api-tests] › src/tests/pets/getPet.spec.ts:110:7 › Get Pet API Tests › should return pet with correct data types (65ms)
+  ✘  44 [api-tests] › src/tests/pets/negativeCases.spec.ts:235:7 › Negative Test Cases for Pet API › should handle concurrent deletion of same pet (314ms)
+  ✓  45 [api-tests] › src/tests/pets/negativeCases.spec.ts:164:7 › Negative Test Cases for Pet API › should handle special characters in pet name (364ms)
+  ✓  46 [api-tests] › src/tests/pets/negativeCases.spec.ts:217:7 › Negative Test Cases for Pet API › should handle invalid URL in photoUrls (355ms)
+  ✘  48 [api-tests] › src/tests/pets/updatePet.spec.ts:72:7 › Update Pet API Tests › should update pet category (184ms)
+  ✘  47 [api-tests] › src/tests/pets/updatePet.spec.ts:29:7 › Update Pet API Tests › should update pet name (422ms)
+  ✘  50 [api-tests] › src/tests/pets/updatePet.spec.ts:88:7 › Update Pet API Tests › should update pet tags (193ms)
+  ✘  49 [api-tests] › src/tests/pets/updatePet.spec.ts:50:7 › Update Pet API Tests › should update pet status (455ms)
+  ✘  51 [api-tests] › src/tests/pets/updatePet.spec.ts:108:7 › Update Pet API Tests › should update all pet fields (422ms)
+  ✘  52 [api-tests] › src/tests/pets/updatePet.spec.ts:126:7 › Update Pet API Tests › should update pet status from available to pending (449ms)
+  ✘  53 [api-tests] › src/tests/pets/updatePet.spec.ts:142:7 › Update Pet API Tests › should update pet status from pending to sold (487ms)
+  ✘  54 [api-tests] › src/tests/pets/updatePet.spec.ts:167:7 › Update Pet API Tests › should update pet photo URLs (430ms)
+  ✘  55 [api-tests] › src/tests/pets/updatePet.spec.ts:185:7 › Update Pet API Tests › should update pet with form data (425ms)
+  ✘  56 [api-tests] › src/tests/pets/updatePet.spec.ts:202:7 › Update Pet API Tests › should update only name with form data (427ms)
+
+
+  1) [api-tests] › src/tests/pets/deletePet.spec.ts:18:7 › Delete Pet API Tests › should delete an existing pet 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      24 |     const { status, body } = await client.deletePet(petId);
+      25 |
+    > 26 |     expect(status).toBe(200);
+         |                    ^
+      27 |     expect(body).toHaveProperty('message');
+      28 |     
+      29 |     // Validate schema
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:26:20
+
+  2) [api-tests] › src/tests/pets/deletePet.spec.ts:37:7 › Delete Pet API Tests › should return 404 when deleting non-existent pet 
+
+    SyntaxError: Unexpected end of JSON input
+
+       at ../clients/petstore-client.ts:111
+
+      109 |     const url = `${this.baseURL}${API_ENDPOINTS.PET_BY_ID(id)}`;
+      110 |     const response = await this.getContext().delete(url);
+    > 111 |     const body = await response.json();
+          |                  ^
+      112 |     logger.debug('Pet deleted', { status: response.status(), body });
+      113 |     return { status: response.status(), body };
+      114 |   }
+        at PetStoreClient.deletePet (/Users/dustinbraun/playwright-api-petstore-automation/src/clients/petstore-client.ts:111:18)
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:40:24
+
+  3) [api-tests] › src/tests/pets/deletePet.spec.ts:46:7 › Delete Pet API Tests › should delete pet with available status 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      54 |     const { status } = await client.deletePet(petId);
+      55 |
+    > 56 |     expect(status).toBe(200);
+         |                    ^
+      57 |
+      58 |     // Verify deletion
+      59 |     const { status: getStatus } = await client.getPetById(petId);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:56:20
+
+  4) [api-tests] › src/tests/pets/deletePet.spec.ts:63:7 › Delete Pet API Tests › should delete pet with pending status 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      71 |     const { status } = await client.deletePet(petId);
+      72 |
+    > 73 |     expect(status).toBe(200);
+         |                    ^
+      74 |
+      75 |     // Verify deletion
+      76 |     const { status: getStatus } = await client.getPetById(petId);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:73:20
+
+  5) [api-tests] › src/tests/pets/deletePet.spec.ts:80:7 › Delete Pet API Tests › should delete pet with sold status 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      88 |     const { status } = await client.deletePet(petId);
+      89 |
+    > 90 |     expect(status).toBe(200);
+         |                    ^
+      91 |
+      92 |     // Verify deletion
+      93 |     const { status: getStatus } = await client.getPetById(petId);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:90:20
+
+  6) [api-tests] › src/tests/pets/deletePet.spec.ts:97:7 › Delete Pet API Tests › should delete pet and prevent retrieval 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      107 |     // Verify exists
+      108 |     const { status: getBeforeStatus } = await client.getPetById(petId);
+    > 109 |     expect(getBeforeStatus).toBe(200);
+          |                             ^
+      110 |
+      111 |     // Delete
+      112 |     const { status: deleteStatus } = await client.deletePet(petId);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:109:29
+
+  7) [api-tests] › src/tests/pets/deletePet.spec.ts:120:7 › Delete Pet API Tests › should handle deletion of recently created pet 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      128 |     const { status } = await client.deletePet(petId);
+      129 |
+    > 130 |     expect(status).toBe(200);
+          |                    ^
+      131 |   });
+      132 |
+      133 |   test('should delete pet with complex data', async () => {
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:130:20
+
+  8) [api-tests] › src/tests/pets/deletePet.spec.ts:133:7 › Delete Pet API Tests › should delete pet with complex data 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      146 |     const { status } = await client.deletePet(petId);
+      147 |
+    > 148 |     expect(status).toBe(200);
+          |                    ^
+      149 |
+      150 |     // Verify deletion
+      151 |     const { status: getStatus } = await client.getPetById(petId);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/deletePet.spec.ts:148:20
+
+  9) [api-tests] › src/tests/pets/findByStatus.spec.ts:33:7 › Find Pets by Status API Tests › should find pets with available status 
+
+    ZodError: [
+      {
+        "code": "invalid_type",
+        "expected": "string",
+        "received": "undefined",
+        "path": [
+          156,
+          "name"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          228,
+          "photoUrls"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          264,
+          "photoUrls"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "string",
+        "received": "undefined",
+        "path": [
+          288,
+          "name"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "string",
+        "received": "undefined",
+        "path": [
+          393,
+          "name"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          400,
+          "photoUrls"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          401,
+          "photoUrls"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          427,
+          "photoUrls"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          428,
+          "photoUrls"
+        ],
+        "message": "Required"
+      }
+    ]
+
+       at ../utils/schema-validator.ts:61
+
+      59 |  */
+      60 | export const assertSchema = <T>(data: unknown, schema: z.ZodSchema<T>): T => {
+    > 61 |   return schema.parse(data);
+         |                 ^
+      62 | };
+      63 |
+      64 | // Export types
+        at Object.get error (/Users/dustinbraun/playwright-api-petstore-automation/node_modules/zod/v3/types.cjs:45:31)
+        at ZodArray.parse (/Users/dustinbraun/playwright-api-petstore-automation/node_modules/zod/v3/types.cjs:120:22)
+        at assertSchema (/Users/dustinbraun/playwright-api-petstore-automation/src/utils/schema-validator.ts:61:17)
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/findByStatus.spec.ts:46:17
+
+  10) [api-tests] › src/tests/pets/findByStatus.spec.ts:49:7 › Find Pets by Status API Tests › should find pets with pending status 
+
+    ZodError: [
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          0,
+          "photoUrls"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          21,
+          "photoUrls"
+        ],
+        "message": "Required"
+      }
+    ]
+
+       at ../utils/schema-validator.ts:61
+
+      59 |  */
+      60 | export const assertSchema = <T>(data: unknown, schema: z.ZodSchema<T>): T => {
+    > 61 |   return schema.parse(data);
+         |                 ^
+      62 | };
+      63 |
+      64 | // Export types
+        at Object.get error (/Users/dustinbraun/playwright-api-petstore-automation/node_modules/zod/v3/types.cjs:45:31)
+        at ZodArray.parse (/Users/dustinbraun/playwright-api-petstore-automation/node_modules/zod/v3/types.cjs:120:22)
+        at assertSchema (/Users/dustinbraun/playwright-api-petstore-automation/src/utils/schema-validator.ts:61:17)
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/findByStatus.spec.ts:61:17
+
+  11) [api-tests] › src/tests/pets/findByStatus.spec.ts:64:7 › Find Pets by Status API Tests › should find pets with sold status 
+
+    ZodError: [
+      {
+        "code": "invalid_type",
+        "expected": "string",
+        "received": "undefined",
+        "path": [
+          15,
+          "name"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "string",
+        "received": "undefined",
+        "path": [
+          16,
+          "name"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          19,
+          "photoUrls"
+        ],
+        "message": "Required"
+      },
+      {
+        "code": "invalid_type",
+        "expected": "array",
+        "received": "undefined",
+        "path": [
+          27,
+          "photoUrls"
+        ],
+        "message": "Required"
+      }
+    ]
+
+       at ../utils/schema-validator.ts:61
+
+      59 |  */
+      60 | export const assertSchema = <T>(data: unknown, schema: z.ZodSchema<T>): T => {
+    > 61 |   return schema.parse(data);
+         |                 ^
+      62 | };
+      63 |
+      64 | // Export types
+        at Object.get error (/Users/dustinbraun/playwright-api-petstore-automation/node_modules/zod/v3/types.cjs:45:31)
+        at ZodArray.parse (/Users/dustinbraun/playwright-api-petstore-automation/node_modules/zod/v3/types.cjs:120:22)
+        at assertSchema (/Users/dustinbraun/playwright-api-petstore-automation/src/utils/schema-validator.ts:61:17)
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/findByStatus.spec.ts:76:17
+
+  12) [api-tests] › src/tests/pets/findByStatus.spec.ts:131:7 › Find Pets by Status API Tests › should filter pets correctly after status update 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+    Received: [31mundefined[39m
+
+      154 |     const { body: soldPets } = await client.findPetsByStatus('sold');
+      155 |     found = soldPets.find((pet) => pet.id === petId);
+    > 156 |     expect(found).toBeDefined();
+          |                   ^
+      157 |     expect(found?.status).toBe('sold');
+      158 |
+      159 |     // Cleanup
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/findByStatus.spec.ts:156:19
+
+  13) [api-tests] › src/tests/pets/getPet.spec.ts:36:7 › Get Pet API Tests › should get an existing pet by ID 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      37 |     const { status, body } = await client.getPetById(testPetId);
+      38 |
+    > 39 |     expect(status).toBe(200);
+         |                    ^
+      40 |     expect(body).toHaveProperty('id', testPetId);
+      41 |     expect(body).toHaveProperty('name');
+      42 |     
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/getPet.spec.ts:39:20
+
+  14) [api-tests] › src/tests/pets/getPet.spec.ts:59:7 › Get Pet API Tests › should get pet with all fields populated 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      60 |     const { status, body } = await client.getPetById(testPetId);
+      61 |
+    > 62 |     expect(status).toBe(200);
+         |                    ^
+      63 |     expect(body).toHaveProperty('id');
+      64 |     expect(body).toHaveProperty('name');
+      65 |     expect(body).toHaveProperty('photoUrls');
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/getPet.spec.ts:62:20
+
+  15) [api-tests] › src/tests/pets/getPet.spec.ts:71:7 › Get Pet API Tests › should retrieve correct pet data after creation 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      83 |     const { status, body } = await client.getPetById(uniqueId);
+      84 |
+    > 85 |     expect(status).toBe(200);
+         |                    ^
+      86 |     if ('name' in body && 'status' in body) {
+      87 |       expect(body.name).toBe(petData.name);
+      88 |       expect(body.status).toBe(petData.status);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/getPet.spec.ts:85:20
+
+  16) [api-tests] › src/tests/pets/getPet.spec.ts:110:7 › Get Pet API Tests › should return pet with correct data types 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      111 |     const { status, body } = await client.getPetById(testPetId);
+      112 |
+    > 113 |     expect(status).toBe(200);
+          |                    ^
+      114 |     if ('id' in body && 'name' in body && 'photoUrls' in body) {
+      115 |       expect(typeof body.id).toBe('number');
+      116 |       expect(typeof body.name).toBe('string');
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/getPet.spec.ts:113:20
+
+  17) [api-tests] › src/tests/pets/negativeCases.spec.ts:120:7 › Negative Test Cases for Pet API › should handle delete of already deleted pet 
+
+    SyntaxError: Unexpected end of JSON input
+
+       at ../clients/petstore-client.ts:111
+
+      109 |     const url = `${this.baseURL}${API_ENDPOINTS.PET_BY_ID(id)}`;
+      110 |     const response = await this.getContext().delete(url);
+    > 111 |     const body = await response.json();
+          |                  ^
+      112 |     logger.debug('Pet deleted', { status: response.status(), body });
+      113 |     return { status: response.status(), body };
+      114 |   }
+        at PetStoreClient.deletePet (/Users/dustinbraun/playwright-api-petstore-automation/src/clients/petstore-client.ts:111:18)
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/negativeCases.spec.ts:131:37
+
+  18) [api-tests] › src/tests/pets/negativeCases.spec.ts:235:7 › Negative Test Cases for Pet API › should handle concurrent deletion of same pet 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      256 |     ).length;
+      257 |
+    > 258 |     expect(successCount).toBeGreaterThan(0);
+          |                          ^
+      259 |   });
+      260 | });
+      261 |
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/negativeCases.spec.ts:258:26
+
+  19) [api-tests] › src/tests/pets/updatePet.spec.ts:29:7 › Update Pet API Tests › should update pet name 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+      36 |     const { status, body } = await client.updatePet(updateData);
+      37 |
+    > 38 |     expect(status).toBe(200);
+         |                    ^
+      39 |     if ('name' in body) {
+      40 |       expect(body.name).toBe('UpdatedName');
+      41 |     }
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:38:20
+
+  20) [api-tests] › src/tests/pets/updatePet.spec.ts:50:7 › Update Pet API Tests › should update pet status 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+      58 |     const { status, body } = await client.updatePet(updateData);
+      59 |
+    > 60 |     expect(status).toBe(200);
+         |                    ^
+      61 |     if ('status' in body) {
+      62 |       expect(body.status).toBe('sold');
+      63 |     }
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:60:20
+
+  21) [api-tests] › src/tests/pets/updatePet.spec.ts:72:7 › Update Pet API Tests › should update pet category 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+      80 |     const { status, body } = await client.updatePet(updateData);
+      81 |
+    > 82 |     expect(status).toBe(200);
+         |                    ^
+      83 |     if ('category' in body) {
+      84 |       expect(body.category?.name).toBe('UpdatedCategory');
+      85 |     }
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:82:20
+
+  22) [api-tests] › src/tests/pets/updatePet.spec.ts:88:7 › Update Pet API Tests › should update pet tags 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+       99 |     const { status, body } = await client.updatePet(updateData);
+      100 |
+    > 101 |     expect(status).toBe(200);
+          |                    ^
+      102 |     if ('tags' in body) {
+      103 |       expect(body.tags).toBeDefined();
+      104 |       expect(body.tags?.length).toBeGreaterThanOrEqual(2);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:101:20
+
+  23) [api-tests] › src/tests/pets/updatePet.spec.ts:108:7 › Update Pet API Tests › should update all pet fields 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+      114 |     const { status, body } = await client.updatePet(updateData);
+      115 |
+    > 116 |     expect(status).toBe(200);
+          |                    ^
+      117 |     if ('name' in body && 'status' in body) {
+      118 |       expect(body.name).toBe(updatedPetData.name);
+      119 |       expect(body.status).toBe(updatedPetData.status);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:116:20
+
+  24) [api-tests] › src/tests/pets/updatePet.spec.ts:126:7 › Update Pet API Tests › should update pet status from available to pending 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+      134 |     const { status, body } = await client.updatePet(updateData);
+      135 |
+    > 136 |     expect(status).toBe(200);
+          |                    ^
+      137 |     if ('status' in body) {
+      138 |       expect(body.status).toBe('pending');
+      139 |     }
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:136:20
+
+  25) [api-tests] › src/tests/pets/updatePet.spec.ts:142:7 › Update Pet API Tests › should update pet status from pending to sold 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+      159 |     const { status, body } = await client.updatePet(updateData);
+      160 |
+    > 161 |     expect(status).toBe(200);
+          |                    ^
+      162 |     if ('status' in body) {
+      163 |       expect(body.status).toBe('sold');
+      164 |     }
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:161:20
+
+  26) [api-tests] › src/tests/pets/updatePet.spec.ts:167:7 › Update Pet API Tests › should update pet photo URLs 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+      177 |     const { status, body } = await client.updatePet(updateData);
+      178 |
+    > 179 |     expect(status).toBe(200);
+          |                    ^
+      180 |     if ('photoUrls' in body) {
+      181 |       expect(body.photoUrls).toEqual(updateData.photoUrls);
+      182 |     }
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:179:20
+
+  27) [api-tests] › src/tests/pets/updatePet.spec.ts:185:7 › Update Pet API Tests › should update pet with form data 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m415[39m
+
+      190 |     );
+      191 |
+    > 192 |     expect(status).toBe(200);
+          |                    ^
+      193 |     
+      194 |     // Verify update
+      195 |     const { body: retrievedPet } = await client.getPetById(testPetId);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:192:20
+
+  28) [api-tests] › src/tests/pets/updatePet.spec.ts:202:7 › Update Pet API Tests › should update only name with form data 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m415[39m
+
+      207 |     );
+      208 |
+    > 209 |     expect(status).toBe(200);
+          |                    ^
+      210 |     
+      211 |     // Verify update
+      212 |     const { body: retrievedPet } = await client.getPetById(testPetId);
+        at /Users/dustinbraun/playwright-api-petstore-automation/src/tests/pets/updatePet.spec.ts:209:20
+
+  28 failed
+    [api-tests] › src/tests/pets/deletePet.spec.ts:18:7 › Delete Pet API Tests › should delete an existing pet 
+    [api-tests] › src/tests/pets/deletePet.spec.ts:37:7 › Delete Pet API Tests › should return 404 when deleting non-existent pet 
+    [api-tests] › src/tests/pets/deletePet.spec.ts:46:7 › Delete Pet API Tests › should delete pet with available status 
+    [api-tests] › src/tests/pets/deletePet.spec.ts:63:7 › Delete Pet API Tests › should delete pet with pending status 
+    [api-tests] › src/tests/pets/deletePet.spec.ts:80:7 › Delete Pet API Tests › should delete pet with sold status 
+    [api-tests] › src/tests/pets/deletePet.spec.ts:97:7 › Delete Pet API Tests › should delete pet and prevent retrieval 
+    [api-tests] › src/tests/pets/deletePet.spec.ts:120:7 › Delete Pet API Tests › should handle deletion of recently created pet 
+    [api-tests] › src/tests/pets/deletePet.spec.ts:133:7 › Delete Pet API Tests › should delete pet with complex data 
+    [api-tests] › src/tests/pets/findByStatus.spec.ts:33:7 › Find Pets by Status API Tests › should find pets with available status 
+    [api-tests] › src/tests/pets/findByStatus.spec.ts:49:7 › Find Pets by Status API Tests › should find pets with pending status 
+    [api-tests] › src/tests/pets/findByStatus.spec.ts:64:7 › Find Pets by Status API Tests › should find pets with sold status 
+    [api-tests] › src/tests/pets/findByStatus.spec.ts:131:7 › Find Pets by Status API Tests › should filter pets correctly after status update 
+    [api-tests] › src/tests/pets/getPet.spec.ts:36:7 › Get Pet API Tests › should get an existing pet by ID 
+    [api-tests] › src/tests/pets/getPet.spec.ts:59:7 › Get Pet API Tests › should get pet with all fields populated 
+    [api-tests] › src/tests/pets/getPet.spec.ts:71:7 › Get Pet API Tests › should retrieve correct pet data after creation 
+    [api-tests] › src/tests/pets/getPet.spec.ts:110:7 › Get Pet API Tests › should return pet with correct data types 
+    [api-tests] › src/tests/pets/negativeCases.spec.ts:120:7 › Negative Test Cases for Pet API › should handle delete of already deleted pet 
+    [api-tests] › src/tests/pets/negativeCases.spec.ts:235:7 › Negative Test Cases for Pet API › should handle concurrent deletion of same pet 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:29:7 › Update Pet API Tests › should update pet name 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:50:7 › Update Pet API Tests › should update pet status 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:72:7 › Update Pet API Tests › should update pet category 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:88:7 › Update Pet API Tests › should update pet tags 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:108:7 › Update Pet API Tests › should update all pet fields 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:126:7 › Update Pet API Tests › should update pet status from available to pending 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:142:7 › Update Pet API Tests › should update pet status from pending to sold 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:167:7 › Update Pet API Tests › should update pet photo URLs 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:185:7 › Update Pet API Tests › should update pet with form data 
+    [api-tests] › src/tests/pets/updatePet.spec.ts:202:7 › Update Pet API Tests › should update only name with form data 
+  28 passed (8.1s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

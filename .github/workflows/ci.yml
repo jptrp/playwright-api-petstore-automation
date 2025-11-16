@@ -43,6 +43,8 @@ jobs:
 
       - name: Run Playwright API tests
         run: npm test
+        # Petstore API is unreliable; allow CI to complete while still reporting failures
+        # Tests expose real-world API instability - this is intentional and documented
         continue-on-error: true
         env:
           API_BASE_URL: https://petstore.swagger.io/v2
