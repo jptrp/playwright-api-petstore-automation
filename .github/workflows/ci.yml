@@ -1,0 +1,114 @@
+name: Playwright API Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run API Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run type check
+        run: npm run type-check
+
+      - name: Run linter
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Run Playwright API tests
+        run: npm test
+        env:
+          API_BASE_URL: https://petstore.swagger.io/v2
+          NODE_ENV: production
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ matrix.node-version }}
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.node-version }}
+          path: test-results/
+          retention-days: 30
+
+      - name: Generate test summary
+        if: always()
+        run: |
+          if [ -f test-results/results.json ]; then
+            echo "## Test Results 📊" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "✅ Tests completed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "View the detailed HTML report in the artifacts section." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## Test Results ⚠️" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Test results file not found." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Comment PR with test results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const resultsPath = 'test-results/results.json';
+            
+            if (fs.existsSync(resultsPath)) {
+              const results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+              const { stats } = results;
+              
+              const comment = `## 🎭 Playwright API Test Results
+              
+              **Status:** ${stats.expected > 0 ? '✅ Passed' : '❌ Failed'}
+              
+              | Metric | Count |
+              |--------|-------|
+              | Total Tests | ${stats.expected + stats.unexpected + stats.skipped} |
+              | ✅ Passed | ${stats.expected} |
+              | ❌ Failed | ${stats.unexpected} |
+              | ⏭️ Skipped | ${stats.skipped} |
+              | ⏱️ Duration | ${(stats.duration / 1000).toFixed(2)}s |
+              
+              [View full report in artifacts](${context.payload.pull_request.html_url}/checks)
+              `;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }

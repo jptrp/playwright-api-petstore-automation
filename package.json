@@ -1,27 +1,41 @@
 {
   "name": "playwright-api-petstore-automation",
   "version": "1.0.0",
-  "description": "API automation testing for Petstore using Playwright",
+  "description": "Production-ready API automation testing for Swagger Petstore using Playwright + TypeScript",
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
-    "report": "playwright show-report"
+    "test:pets": "playwright test src/tests/pets",
+    "test:report": "playwright show-report",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "playwright",
     "api-testing",
     "automation",
+    "typescript",
     "petstore"
   ],
-  "author": "",
-  "license": "ISC",
-  "engines": {
-    "node": "20.x"
-  },
+  "author": "Senior SDET",
+  "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.48.0",
-    "@types/node": "^20.16.0"
+    "@types/node": "^20.14.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
