@@ -1,0 +1,27 @@
+{
+  "name": "playwright-api-petstore-automation",
+  "version": "1.0.0",
+  "description": "API automation testing for Petstore using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "api-testing",
+    "automation",
+    "petstore"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "20.x"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^20.16.0"
+  }
+}
