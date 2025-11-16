@@ -138,7 +138,7 @@ test.describe('Find Pets by Status API Tests', () => {
     const petId = createResult.body.id!;
 
     // Verify it appears in available list
-    let { body: availablePets } = await client.findPetsByStatus('available');
+    const { body: availablePets } = await client.findPetsByStatus('available');
     let found = availablePets.find((pet) => pet.id === petId);
     expect(found).toBeDefined();
 

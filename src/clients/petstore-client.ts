@@ -58,12 +58,13 @@ export class PetStoreClient {
   async createPet(petData: Partial<Pet>): Promise<{ status: number; body: Pet }> {
     logger.debug('Creating pet', petData);
     // Remove id from petData if present - API generates it
-    const { id, ...dataToSend } = petData;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id: _id, ...dataToSend } = petData;
     const url = `${this.baseURL}${API_ENDPOINTS.PET}`;
     const response = await this.getContext().post(url, {
       data: dataToSend,
     });
-    let body: any;
+    let body: Pet;
     try {
       body = await response.json();
     } catch (error) {

@@ -61,7 +61,7 @@ test.describe('Create Pet API Tests', () => {
     expect(body.status).toBe('available');
 
     // Cleanup
-    await client.deletePet(body.id!);
+    if (body.id) await client.deletePet(body.id);
   });
 
   test('should create a pet with pending status', async () => {
@@ -77,7 +77,7 @@ test.describe('Create Pet API Tests', () => {
     expect(body.status).toBe('pending');
 
     // Cleanup
-    await client.deletePet(body.id!);
+    if (body.id) await client.deletePet(body.id);
   });
 
   test('should create a pet with sold status', async () => {
@@ -93,7 +93,7 @@ test.describe('Create Pet API Tests', () => {
     expect(body.status).toBe('sold');
 
     // Cleanup
-    await client.deletePet(body.id!);
+    if (body.id) await client.deletePet(body.id);
   });
 
   test('should create a pet with category', async () => {
@@ -106,11 +106,12 @@ test.describe('Create Pet API Tests', () => {
     const { status, body } = await client.createPet(petData);
 
     expect(status).toBe(200);
+    expect(body.id).toBeDefined();
     expect(body.category).toBeDefined();
     expect(body.category?.name).toBe('Cats');
 
     // Cleanup
-    await client.deletePet(body.id!);
+    if (body.id) await client.deletePet(body.id);
   });
 
   test('should create a pet with tags', async () => {
@@ -130,7 +131,7 @@ test.describe('Create Pet API Tests', () => {
     expect(body.tags?.length).toBeGreaterThanOrEqual(2);
 
     // Cleanup
-    await client.deletePet(body.id!);
+    if (body.id) await client.deletePet(body.id);
   });
 
   test('should create a pet with multiple photo URLs', async () => {
@@ -149,6 +150,6 @@ test.describe('Create Pet API Tests', () => {
     expect(body.photoUrls.length).toBeGreaterThanOrEqual(3);
 
     // Cleanup
-    await client.deletePet(body.id!);
+    if (body.id) await client.deletePet(body.id);
   });
 });

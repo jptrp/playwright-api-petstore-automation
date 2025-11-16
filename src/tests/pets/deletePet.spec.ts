@@ -18,7 +18,7 @@ test.describe('Delete Pet API Tests', () => {
   test('should delete an existing pet', async () => {
     // Create a pet
     const createResult = await client.createPet(validPetData);
-    const petId = createResult.body.id!;
+    const petId = createResult.body.id ?? 0;
 
     // Delete the pet
     const { status, body } = await client.deletePet(petId);
